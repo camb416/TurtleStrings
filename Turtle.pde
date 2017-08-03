@@ -96,8 +96,11 @@ class Turtle {
   void drawForward(float _scale) {
     drawCount++;
     float x2 = x + _scale*cos(rot/180.0f*PI); 
-
     float y2 = y + _scale*sin(rot/180.0f*PI);
+    
+    if(abs(x2-x)<1.0f) x2 = x;
+     if(abs(y2-y)<1.0f) y2 = y;
+    
     stroke(0);
     noFill();
     line(x, y, x2, y2);
